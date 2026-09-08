@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net" modified="2026-09-08T09:50:00.000Z" agent="ChatGPT" version="24.7.17">
+  <diagram id="knopfladen-dfd" name="Bedrohungsanalyse – Knopfladen">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        
+        <mxCell id="title" value="Datenflussdiagramm – Knopfladen | Bedrohungen und Sicherheitsmaßnahmen" style="text;html=1;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="800" height="40" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="tb-internet" value="Trust Boundary: Internet / nicht vertrauenswürdig" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;strokeWidth=2;fillColor=none;strokeColor=#666666;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="1320" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tb-dmz" value="Trust Boundary: öffentlich erreichbare Web-Schicht / DMZ" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;strokeWidth=2;fillColor=none;strokeColor=#d79b00;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="250" y="300" width="860" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tb-internal" value="Trust Boundary: internes Anwendungs- und Datennetz" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;strokeWidth=2;fillColor=none;strokeColor=#82b366;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="250" y="550" width="860" height="280" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="customer" value="Kunde&#10;(Browser / Smartphone)" style="shape=mxgraph.dfd.external_entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="145" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="admin" value="Administrator&#10;(Browser)" style="shape=mxgraph.dfd.external_entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="145" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="payment" value="Externer Zahlungsdienst&#10;(z. B. PSP)" style="shape=mxgraph.dfd.external_entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="145" width="200" height="70" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="shop-ui" value="Shopoberfläche&#10;Web-Frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="365" width="210" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="admin-ui" value="Adminoberfläche&#10;Web-Frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="365" width="210" height="90" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="backend" value="Shop-Backend / API&#10;Bestellungen, Warenkorb, Kundenkonto" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="625" width="280" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="admin-backend" value="Admin-Service&#10;Produktpflege, Bestellungen, Benutzerverwaltung" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="625" width="280" height="100" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="db" value="Datenbank&#10;Produkte, Preise, Kunden, Bestellungen, Admin-Konten" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="525" y="755" width="310" height="55" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="e1" value="HTTPS&#10;Produktanzeige, Login, Warenkorb, Bestellung" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="customer" target="shop-ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e2" value="HTTPS&#10;Admin-Login / Administration" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#b85450;" edge="1" parent="1" source="admin" target="admin-ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e3" value="REST/HTTPS&#10;Shop-Anfragen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="shop-ui" target="backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e4" value="REST/HTTPS&#10;Admin-Funktionen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#b85450;" edge="1" parent="1" source="admin-ui" target="admin-backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e5" value="SQL/TLS&#10;Lesen/Schreiben Shopdaten" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="backend" target="db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e6" value="SQL/TLS&#10;Pflege / Auswertung / Benutzerverwaltung" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#9673a6;" edge="1" parent="1" source="admin-backend" target="db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e7" value="HTTPS&#10;Zahlungsanforderung" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#d6b656;" edge="1" parent="1" source="backend" target="payment">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e8" value="HTTPS/Webhook&#10;Zahlungsstatus" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#d6b656;dashed=1;" edge="1" parent="1" source="payment" target="backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="legend" value="Legende:&lt;br&gt;Weiße Elemente = Assets / Komponenten&lt;br&gt;&lt;font color='#008000'&gt;Grün = Sicherheitsmaßnahmen&lt;/font&gt;&lt;br&gt;&lt;font color='#b00000'&gt;Rot = Bedrohungen&lt;/font&gt;&lt;br&gt;Gestrichelte Rahmen = Trust Boundaries" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="590" width="230" height="115" as="geometry" />
+        </mxCell>
+
+      <mxCell id="sec-customer" value="Sicherheitsmaßnahmen:&lt;br&gt;HTTPS/TLS, HSTS,&lt;br&gt;sichere Cookies, Input-Validierung" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="300" y="105" width="220" height="75" as="geometry" /></mxCell><mxCell id="sec-shop" value="Sicherheitsmaßnahmen:&lt;br&gt;WAF, Rate-Limiting,&lt;br&gt;CSRF-Schutz, sichere Header" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="290" y="465" width="220" height="75" as="geometry" /></mxCell><mxCell id="sec-backend" value="Sicherheitsmaßnahmen:&lt;br&gt;Authentifizierung, Autorisierung (RBAC),&lt;br&gt;Validierung, Logging/Monitoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="270" y="725" width="240" height="85" as="geometry" /></mxCell><mxCell id="sec-admin" value="Sicherheitsmaßnahmen:&lt;br&gt;MFA, starke Authentifizierung,&lt;br&gt;Session-Timeout, IP-Restriktion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="805" y="465" width="235" height="75" as="geometry" /></mxCell><mxCell id="sec-db" value="Sicherheitsmaßnahmen:&lt;br&gt;Least Privilege, Verschlüsselung at rest,&lt;br&gt;Backups, DB-Auditing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="860" y="750" width="230" height="80" as="geometry" /></mxCell><mxCell id="sec-payment" value="Sicherheitsmaßnahmen:&lt;br&gt;TLS, Tokenisierung,&lt;br&gt;keine Speicherung von Kartendaten" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1110" y="300" width="230" height="75" as="geometry" /></mxCell><mxCell id="thr-customer" value="Bedrohungen:&lt;br&gt;Session-Hijacking, Credential Stuffing,&lt;br&gt;Manipulierte Eingaben" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="55" y="285" width="210" height="80" as="geometry" /></mxCell><mxCell id="thr-shop" value="Bedrohungen:&lt;br&gt;XSS, CSRF, DDoS,&lt;br&gt;Manipulation von Requests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="525" y="305" width="210" height="80" as="geometry" /></mxCell><mxCell id="thr-backend" value="Bedrohungen:&lt;br&gt;Injection, API-Missbrauch,&lt;br&gt;Broken Access Control" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="525" y="530" width="210" height="80" as="geometry" /></mxCell><mxCell id="thr-admin" value="Bedrohungen:&lt;br&gt;Account-Übernahme, Privilege Escalation,&lt;br&gt;Insider-Bedrohung / Fehlbedienung" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1120" y="390" width="225" height="90" as="geometry" /></mxCell><mxCell id="thr-db" value="Bedrohungen:&lt;br&gt;Datenabfluss, Manipulation,&lt;br&gt;Ransomware / Datenverlust" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1115" y="720" width="225" height="85" as="geometry" /></mxCell><mxCell id="thr-payment" value="Bedrohungen:&lt;br&gt;Manipulation von Zahlungsdaten,&lt;br&gt;gefälschte Webhooks / Zahlungsstatus" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1100" y="490" width="245" height="80" as="geometry" /></mxCell></root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
