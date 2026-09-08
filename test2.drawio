@@ -1,0 +1,113 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="knopfladen-dfd" name="Bedrohungsanalyse – Knopfladen">
+    <mxGraphModel dx="2046" dy="1052" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;" value="Datenflussdiagramm – Knopfladen | Bedrohungen und Sicherheitsmaßnahmen" vertex="1">
+          <mxGeometry height="40" width="800" x="300" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tb-internet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;strokeWidth=2;fillColor=none;strokeColor=#666666;fontStyle=1;verticalAlign=top;spacingTop=8;" value="Trust Boundary: Internet / nicht vertrauenswürdig" vertex="1">
+          <mxGeometry height="180" width="1320" x="40" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="tb-dmz" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;strokeWidth=2;fillColor=none;strokeColor=#d79b00;fontStyle=1;verticalAlign=top;spacingTop=8;" value="Trust Boundary: öffentlich erreichbare Web-Schicht / DMZ" vertex="1">
+          <mxGeometry height="220" width="860" x="250" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="tb-internal" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;strokeWidth=2;fillColor=none;strokeColor=#82b366;fontStyle=1;verticalAlign=top;spacingTop=8;" value="Trust Boundary: internes Anwendungs- und Datennetz" vertex="1">
+          <mxGeometry height="339" width="860" x="250" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="customer" parent="1" style="shape=mxgraph.dfd.external_entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontStyle=1;" value="Kunde&#xa;(Browser / Smartphone)" vertex="1">
+          <mxGeometry height="70" width="180" x="90" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" parent="1" style="shape=mxgraph.dfd.external_entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontStyle=1;" value="Administrator&#xa;(Browser)" vertex="1">
+          <mxGeometry height="70" width="180" x="600" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="payment" parent="1" style="shape=mxgraph.dfd.external_entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontStyle=1;" value="Externer Zahlungsdienst&#xa;(z. B. PSP)" vertex="1">
+          <mxGeometry height="70" width="200" x="1080" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="shop-ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontStyle=1;" value="Shopoberfläche&#xa;Web-Frontend" vertex="1">
+          <mxGeometry height="90" width="210" x="330" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="admin-ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontStyle=1;" value="Adminoberfläche&#xa;Web-Frontend" vertex="1">
+          <mxGeometry height="90" width="210" x="820" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="backend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontStyle=1;" value="Shop-Backend / API&#xa;Bestellungen, Warenkorb, Kundenkonto" vertex="1">
+          <mxGeometry height="100" width="280" x="370" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="admin-backend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Admin-Service&#xa;Produktpflege, Bestellungen, Benutzerverwaltung" vertex="1">
+          <mxGeometry height="100" width="280" x="760" y="638" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontStyle=1;" value="Datenbank&#xa;Produkte, Preise, Kunden, Bestellungen, Admin-Konten" vertex="1">
+          <mxGeometry height="55" width="310" x="525" y="804" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="customer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="shop-ui" value="HTTPS&#xa;Produktanzeige, Login, Warenkorb, Bestellung">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="admin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#b85450;" target="admin-ui" value="HTTPS&#xa;Admin-Login / Administration">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="shop-ui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="backend" value="REST/HTTPS&#xa;Shop-Anfragen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="admin-ui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#b85450;" target="admin-backend" value="REST/HTTPS&#xa;Admin-Funktionen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="db" value="SQL/TLS&#xa;Lesen/Schreiben Shopdaten">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="774" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#9673a6;" target="db" value="SQL/TLS&#xa;Pflege / Auswertung / Benutzerverwaltung">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="774" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="backend" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#d6b656;" target="payment" value="HTTPS&#xa;Zahlungsanforderung">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="payment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#d6b656;dashed=1;" target="backend" value="HTTPS/Webhook&#xa;Zahlungsstatus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=top;spacing=8;" value="Legende:&lt;br&gt;Weiße Elemente = Assets / Komponenten&lt;br&gt;&lt;font color=&#39;#008000&#39;&gt;Grün = Sicherheitsmaßnahmen&lt;/font&gt;&lt;br&gt;&lt;font color=&#39;#b00000&#39;&gt;Rot = Bedrohungen&lt;/font&gt;&lt;br&gt;Gestrichelte Rahmen = Trust Boundaries" vertex="1">
+          <mxGeometry height="115" width="230" x="1120" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-customer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Sicherheitsmaßnahmen:&lt;br&gt;HTTPS/TLS, HSTS,&lt;br&gt;sichere Cookies, Input-Validierung" vertex="1">
+          <mxGeometry height="75" width="220" x="300" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-shop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Sicherheitsmaßnahmen:&lt;br&gt;WAF, Rate-Limiting,&lt;br&gt;CSRF-Schutz, sichere Header" vertex="1">
+          <mxGeometry height="75" width="220" x="290" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-backend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Sicherheitsmaßnahmen:&lt;br&gt;Authentifizierung, Autorisierung (RBAC),&lt;br&gt;Validierung, Logging/Monitoring" vertex="1">
+          <mxGeometry height="85" width="240" x="270" y="774" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-admin" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Sicherheitsmaßnahmen:&lt;br&gt;MFA, starke Authentifizierung,&lt;br&gt;Session-Timeout, IP-Restriktion" vertex="1">
+          <mxGeometry height="75" width="235" x="805" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-db" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Sicherheitsmaßnahmen:&lt;br&gt;Least Privilege, Verschlüsselung at rest,&lt;br&gt;Backups, DB-Auditing" vertex="1">
+          <mxGeometry height="80" width="230" x="860" y="799" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-payment" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Sicherheitsmaßnahmen:&lt;br&gt;TLS, Tokenisierung,&lt;br&gt;keine Speicherung von Kartendaten" vertex="1">
+          <mxGeometry height="75" width="230" x="1110" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="thr-customer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Bedrohungen:&lt;br&gt;Session-Hijacking, Credential Stuffing,&lt;br&gt;Manipulierte Eingaben" vertex="1">
+          <mxGeometry height="80" width="210" x="55" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="thr-shop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Bedrohungen:&lt;br&gt;XSS, CSRF, DDoS,&lt;br&gt;Manipulation von Requests" vertex="1">
+          <mxGeometry height="80" width="210" x="525" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="thr-backend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Bedrohungen:&lt;br&gt;Injection, API-Missbrauch,&lt;br&gt;Broken Access Control" vertex="1">
+          <mxGeometry height="80" width="210" x="276" y="578" as="geometry" />
+        </mxCell>
+        <mxCell id="thr-admin" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Bedrohungen:&lt;br&gt;Account-Übernahme, Privilege Escalation,&lt;br&gt;Insider-Bedrohung / Fehlbedienung" vertex="1">
+          <mxGeometry height="90" width="225" x="1120" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="thr-db" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Bedrohungen:&lt;br&gt;Datenabfluss, Manipulation,&lt;br&gt;Ransomware / Datenverlust" vertex="1">
+          <mxGeometry height="85" width="225" x="1115" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="thr-payment" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=middle;spacing=8;fontSize=12;" value="Bedrohungen:&lt;br&gt;Manipulation von Zahlungsdaten,&lt;br&gt;gefälschte Webhooks / Zahlungsstatus" vertex="1">
+          <mxGeometry height="80" width="245" x="1100" y="490" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
